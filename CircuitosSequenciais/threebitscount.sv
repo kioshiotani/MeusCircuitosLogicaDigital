@@ -1,11 +1,20 @@
-// top ///////////////////////////////////////////
-module FFTposedge (input T, clk, teste, output Q, nQ);
+module threebitscount (input clk, output [2:0] Q); // TOP
+	wire clk0, clk1;
+	wire nQ2;
+
+  // FFTs precisariam ter no estado inicial Q = 0 (arrumar isso depois)
+	FFTposedge f1 (1'b1, clk, Q[0], clk0);
+	FFTposedge f2 (1'b1, clk0, Q[1], clk1);
+	FFTposedge f3 (1'b1, clk1, Q[2], nQ2);
+
+endmodule
+
+// FFT ///////////////////////////////////////////
+module FFTposedge (input T, clk, output Q, nQ);
 	wire m;
  	
 	mux_2_to_1E mux (Q, nQ, T, m);
   FFDposedge FFD (m, clk, Q, nQ);
-
-
 endmodule
 /////////////////////////////////////////////////
 
