@@ -1,7 +1,6 @@
 module FFDnegedgepresetclear (input D, clk, preset_n, clear_n, output Q2, nQ);
   wire Q1, nQ1, Q2, nQ2;
 
-
   // LatchD1
   wire DEn1, nDEn1; // En = clk 
   nand(DEn1, D, clk);
