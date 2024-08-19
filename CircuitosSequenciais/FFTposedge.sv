@@ -5,6 +5,9 @@ module FFTposedge (input T, clk, teste, output Q, nQ);
 	mux_2_to_1E mux (Q, nQ, T, m);
   FFDposedge FFD (m, clk, Q, nQ);
 
+  always @(*) begin
+
+  end
 
 endmodule
 /////////////////////////////////////////////////
