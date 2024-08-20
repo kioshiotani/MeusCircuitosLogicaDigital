@@ -1,10 +1,12 @@
+// Tentativa fracassada de fazer um FFD com reset (de forma estrutural) para posteriormente fazer um FFT com reset assíncrono (de forma estrutural)
+
 // TOP ///////////////////////////////////////////
 module FFDposedgereset (input D, clock, reset, output Q, nQ);
   wire clk;
   assign clk = ~clock;
   wire wl1;
   wire trash;
-  latchD latch1 (D, clk, wl1, trash);
+  latchD_reset latch1 (D, clk, reset, wl1, trash);
   latchD_reset latch2 (wl1, ~clk, reset, Q, nQ);
 endmodule
 /////////////////////////////////////////////////
