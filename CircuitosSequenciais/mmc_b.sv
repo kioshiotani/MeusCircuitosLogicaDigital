@@ -29,7 +29,7 @@ module mmc_b (
 				b <= b_i_b;
 			end
 
-			done <= a == b ? 1'b1 : 1'b0;
+			done <= a == b;
 			res <= a;
 		end
 	end
