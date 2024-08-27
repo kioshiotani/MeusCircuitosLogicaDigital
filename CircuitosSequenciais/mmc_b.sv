@@ -4,34 +4,23 @@ module mmc_b (
 	output reg [31:0] res,
 	output reg done);
 	
-	reg [31:0] a, b, a_i_a, b_i_b;
+	reg [31:0] a, b;
 	reg en_a, en_b;
 
 	always @(posedge clk) begin
-		if (ld)
-		begin
+		if (ld) begin
 			a <= i_a;
 			b <= i_b;
-			en_a <= 0;
-			en_b <= 0;
 		end
 		else begin
-			en_a <= a < b;
-			en_b <= b < a;
-
-			a_i_a <= a + i_a;
-			b_i_b <= b + i_b;
-		
-			if (en_a) begin
-				a <= a_i_a;
-			end
-			else if (en_b) begin
-				b <= b_i_b;
-			end
-
-			done <= a == b;
-			res <= a;
+			if (a < b)
+				a <= a + i_a;
+			else
+				b <= b + i_b;
 		end
 	end
+
+	assign res = a;
+	assign done = a == b;
 endmodule
 

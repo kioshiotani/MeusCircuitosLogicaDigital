@@ -1,5 +1,5 @@
 module nBitsRingCounter (start, clk, Q);
-	parameter n = 4;
+	parameter n = 10;
 	input start;
 	input clk;
 	output [n-1:0] Q;
