@@ -15,7 +15,7 @@ module mmc_b (
 		else begin
 			if (a < b)
 				a <= a + i_a;
-			else
+			else if (a > b)
 				b <= b + i_b;
 		end
 	end
