@@ -28,7 +28,7 @@ module RegCargaParalela (input SerInput, load, clk,
   mux2to1 mux2 (Q[3], ParInput[2], load, inFFD2);
   mux2to1 mux1 (Q[2], ParInput[1], load, inFFD1);
   mux2to1 mux0 (Q[1], ParInput[0], load, inFFD0);
-  
+
   FFDposedge FFD3 (inFFD3, clk, Q[3], trash[3]);
   FFDposedge FFD2 (inFFD2, clk, Q[2], trash[2]);
   FFDposedge FFD1 (inFFD1, clk, Q[1], trash[1]);

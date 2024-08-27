@@ -51,6 +51,8 @@ module countParalelCharge(En, load, clk, C, Q, Z);
 
 endmodule
 
+
+
 module ffd (input D, clk, output reg Q);
 	always @(posedge clk) begin
 		Q = D;
