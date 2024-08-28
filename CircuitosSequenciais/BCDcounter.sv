@@ -3,9 +3,8 @@ module BCDcounter(input En, clk, clear, output [7:0] Q);
     wire and0, and1;
     wire Z0, Z1;
 
-    and(and0, Q[0], Q[2]);
-    or(load0, clear, and0);
-
+    and(and0, Q[0], Q[3]);
+    or(load0, clear, and0);	
     countParalelCharge c0 (En, load0, clk, 3'b000, Q[3:0], Z0);
 
     and(and1, Q[4], Q[7]);
